@@ -22,12 +22,6 @@ RUN \
     cmake -DCMAKE_BUILD_TYPE=Release ../vtk-snapshot && \
     make -j 4 && make install && \
     make clean && cd /tmp && rm -rf vtk-build && rm -rf vtk-snapshot
-RUN \
-    git clone --branch "pcl-1.9.1" --depth 1 https://github.com/PointCloudLibrary/pcl.git pcl-snapshot && \
-    mkdir pcl-build && cd pcl-build && \
-    cmake -DCMAKE_BUILD_TYPE=Release -DWITH_ENSENSO=OFF -DWITH_OPENNI=OFF -DWITH_OPENNI2=OFF ../pcl-snapshot && \
-    make -j 4 && make install && \
-    make clean && cd /tmp && rm -rf pcl-build && rm -rf pcl-snapshot
 
 RUN ldconfig
 WORKDIR /
